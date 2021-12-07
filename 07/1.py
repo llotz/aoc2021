@@ -9,8 +9,7 @@ for x in range(max(l)):
     s = 0
     for p in l:
         m = abs(p-x)
-        s += m*(m+1)/2
+        s += m
     if least == 0 or least > s:
         least = s
-    print(x)
 print(least)

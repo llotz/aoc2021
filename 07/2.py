@@ -1,8 +1,16 @@
 import os
+import math
 
-l = [int(x) for x in open('in.txt').read().split('\n')]
-o = 0
-for x in range(3, len(l)):
-    if((l[x-1]+l[x-2]+l[x-3]) < (l[x]+l[x-1]+l[x-2])):
-        o += 1
-print(o)
+l = [int(x) for x in open('in.txt').read().split(',')]
+l = sorted(l)
+
+least = 0
+for x in range(max(l)):
+    s = 0
+    for p in l:
+        m = abs(p-x)
+        s += m*(m+1)/2  # sum(1-m)
+    if least == 0 or least > s:
+        least = s
+    print(x)
+print(least)
